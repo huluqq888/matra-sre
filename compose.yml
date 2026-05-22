@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: matra-sre:local
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: matra-sre:local
+    entrypoint: ["sh", "-lc"]
+    command: "uv run main.py --help"
