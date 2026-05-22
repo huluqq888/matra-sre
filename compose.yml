@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     image: matra-sre:local
+    volumes:
+      - ./data:/data
 
   test:
     build:

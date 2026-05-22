@@ -10,5 +10,6 @@ ENV UV_NO_DEV=1
 WORKDIR /app
 RUN uv sync --locked
 
-ENTRYPOINT ["uv", "run", "main.py"]
-CMD ["--help"]
+WORKDIR /data
+ENTRYPOINT ["uv", "run", "--project", "/app", "/app/main.py"]
+CMD ["convert", "input.litematic", "output.litematic"]
